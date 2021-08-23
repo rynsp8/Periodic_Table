@@ -5,21 +5,6 @@
 //I chose a buffer size of 318 because that is the total amount of bytes of the headers.
 #define BUFFER_SIZE 318
 
-//Data structure I may/may not be working with in the future
-struct Elements{
-    char name[14];
-    char symbol[13];
-    int atomicNumber;
-    float firstIonizationEnergy;
-    char electronConfiguration[16];
-    signed int oxidationStates;
-    float atomicMass;
-    float electroNegativity;
-    int group;
-    int period;
-    char state[18];
-};
-
 const char* getfield(char* line, int num);
 
 int main(){
@@ -55,9 +40,6 @@ int main(){
 
     }
 
-
-
-
     //printf("\n");
 
     //struct Elements element;
@@ -77,11 +59,15 @@ const char* getfield(char* line, int num)
 {
     const char* tok;
     for (tok = strtok(line, ",");
+            //It checks first if the pointer (tok) isn't nullptr (pointing to nothing), 
+            //then if the pointer isn't nullptr, it checks if it points to memory where the value (*tok) isn't '\0'.
             tok && *tok;
             tok = strtok(NULL, ",\n"))
     {
+        //my assumption is that this is checking if num is an actual number.  But why wait until after?
         if (!--num)
             return tok;
     }
+    //why return NULL is what we want is an actual char?
     return NULL;
 }

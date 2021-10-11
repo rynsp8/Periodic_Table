@@ -168,7 +168,6 @@ table *buildTable(char* file){
                 element[i].valence = atoi(token);
             }
 
-            //printf("%s\n", token);
             token = strtok_r(NULL, ",", &tmp);
         }
         field_count = 0;

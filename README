@@ -1,3 +1,16 @@
 This project will be used for personal educational purposes.
 	This is my first remote commit with more to come.
 	Periodic_table.csv was taken from GoodmanSciences
+
+10/11/2021
+I've been able to read the Periodic_table.csv file into a structure using
+	malloc - to allocate space needed to utilize all 118 elements
+	fopen - obviously to open Periodic_table.csv in read mode
+	fgets - to pull the rows from Periodic_table.csv into a buffer that is 318 bytes long
+	strdup - to make a copy of buffer for manipulaltion
+	strtok_r - to call each item deliminated by ","
+	strcpy - to copy the field from strtok_r into the structure
+	atoi - to change the data from char*/string to an integer
+	atof - to change the data from a char*/string to a float
+	fclose - to close Periodic_table.csv
+	
